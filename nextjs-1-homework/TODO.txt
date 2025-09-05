@@ -1,0 +1,9 @@
+TASK-1 : create a next app using the way you learned and put it inside a github repo
+
+TASK-2 : create three pages beside home page  (store, support ,about)
+
+TASK-3 : inside store there should be another route called "shoes" (should be nested route)
+
+TASK-4 : inside support folder create a dynamic route that works like this : localhost:3000/support/1 ,  localhost:3000/support/2 and it should render a p tag that has this text init 'admin id: 1', 'admin id: 2', (admin id: [number/text of route])
+
+TASK-5 : create a route groupe called auth with two routes : login & register
