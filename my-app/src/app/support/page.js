@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
 export default function support() {
-  return (
-    <div>support</div>
-  )
+  if (Math.floor(Math.random() * 3) + 1) throw new Error("you are wrong");
+
+  return <div>support</div>;
 }

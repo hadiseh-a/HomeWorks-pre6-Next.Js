@@ -35,6 +35,11 @@ a {
   text-decoration: none;
 }
 
+.styleLink {
+  color: red !important;
+  background-color: #ededed !important;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

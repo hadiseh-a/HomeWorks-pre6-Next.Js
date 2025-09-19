@@ -1,0 +1,11 @@
+Considering your next-2 homework : 
+
+TASK-1 : make a header component with these navItems : Home, Support, Store, About, and each one should be linked to its route
+
+TASK-2 : apply the functionality of specifying the active link(by using usePathname and adding a class to globals.css)
+
+TASK-3 : create dynamic route for store page to get product id and show product details 
+
+TASK-4 : create two not-found page one for entire app and one for store route
+
+TASK-5 : create a simple error.jsx file and show an error when user navigates to Support page
