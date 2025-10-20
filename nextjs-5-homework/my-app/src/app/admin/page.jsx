@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Grid, Typography } from "@mui/material";
 import Link from "next/link";
-import NavBar from "@/components/NavBar";
+
 
 export default function Home() {
   return (

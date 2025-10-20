@@ -3,6 +3,9 @@ import { getData } from "@/utils/getData";
 import { flex, Stack } from "@mui/system";
 import React, { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { Button } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 const MultiActionAreaCard = dynamic(
   () => import("@/components/MultiActionAreaCard"),
@@ -19,8 +22,14 @@ export default function page() {
     fetching();
   }, [data]);
 
+  const router = useRouter();
+
   return (
     <Stack direction="row" display="flex" flexWrap="wrap" gap="1rem">
+      <Button onClick={() => router.push("/addPosts")} fullWidth>
+        <AddCircleOutlineIcon fontSize="large" />
+      </Button>
+
       {data.posts?.map((item) => (
         <Suspense fallback={<p>loading...</p>} key={item.id}>
           {" "}
