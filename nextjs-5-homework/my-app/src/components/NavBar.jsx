@@ -20,19 +20,20 @@ export default function NavBar() {
   return (
     <div>
       <Stack direction="row" spacing={2} pb={1}>
-        <Link href={"/posts"}>
+        <Link href={"/admin/posts"}>
           <Item>posts</Item>
         </Link>
-        <Link href={"/recipes"}>
+        <Link href={"/admin/recipes"}>
           {" "}
           <Item>recipes</Item>
         </Link>
-        <Link href={"/users"}>
+        <Link href={"/admin/users"}>
           {" "}
           <Item>users</Item>
         </Link>
-
-        <Item>admin</Item>
+        <Link href={"/admin"}>
+          <Item>admin</Item>
+        </Link>
       </Stack>
     </div>
   );

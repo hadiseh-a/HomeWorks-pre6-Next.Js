@@ -13,7 +13,7 @@ function page({ params }) {
   const [item, setItem] = useState([]);
   useEffect(() => {
     async function fetching() {
-      const data = await getData("https://dummyjson.com/recipes");
+      const data = await getData("http://localhost:3000/api/v1/recipes");
       const item = data.recipes.find(
         (item) => Number(item.id) === Number(params.id)
       );

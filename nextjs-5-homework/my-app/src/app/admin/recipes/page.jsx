@@ -13,7 +13,7 @@ export default function page() {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetching() {
-      const data = await getData("https://dummyjson.com/recipes");
+      const data = await getData("http://localhost:3000/api/v1/recipes");
       setData(data);
     }
     fetching();

@@ -5,7 +5,7 @@ export default function NotFound() {
     <div style={{ padding: "2rem", textAlign: "center" }}>
       <h1>404 not found</h1>
       <Link
-        href="/"
+        href="/admin"
         style={{
           display: "inline-block",
           marginTop: "1rem",
