@@ -1,3 +1,5 @@
+"use server";
+
 import { revalidateTag } from "next/cache";
 
 export const createItem = async (url, name, data) => {
@@ -9,7 +11,7 @@ export const createItem = async (url, name, data) => {
     },
   });
   revalidateTag(`${name}`);
-  return {msg:"done"}
+  return { msg: "done" };
 };
 
 export const updateItem = async (url, name, data) => {
@@ -21,11 +23,11 @@ export const updateItem = async (url, name, data) => {
     },
   });
   revalidateTag(`${name}`);
-  return {msg:"done"}
+  return { msg: "done" };
 };
 
-export const deleteItem = async (url, name, id) => {
+export const deleteItem = async (url, name) => {
   await fetch(url, { method: "DELETE" });
   revalidateTag(`${name}`);
-  return {msg:"done"}
+  return { msg: "done" };
 };

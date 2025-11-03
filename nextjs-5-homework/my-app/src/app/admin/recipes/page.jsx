@@ -33,7 +33,7 @@ export default function page() {
       {data.recipes?.map((item) => (
         <Suspense fallback={<p>loading...</p>} key={item.id}>
           <MultiActionAreaCard
-            title={item.name}
+            title={item.name?item.name:item.title}
             description={item.instructions.map((el) => el)}
             key={item.id}
             id={item.id}

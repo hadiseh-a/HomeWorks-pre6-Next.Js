@@ -8,6 +8,10 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardActions from "@mui/material/CardActions";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Stack from "@mui/material/Stack";
+import { deleteItem } from "@/utils/actions/actions";
 
 export default function MultiActionAreaCard({
   option,
@@ -15,6 +19,8 @@ export default function MultiActionAreaCard({
   description,
   image,
   id,
+  onEdit,
+  onDelete,
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -31,7 +37,7 @@ export default function MultiActionAreaCard({
         }}
         sx={{
           cursor: isCurrentPage ? "default" : "pointer",
-          pointerEvents: isCurrentPage ? "none" : "auto", // غیرقابل کلیک کردن کل کارت
+          pointerEvents: isCurrentPage ? "none" : "auto",
         }}
       >
         {image && (
@@ -54,7 +60,7 @@ export default function MultiActionAreaCard({
         </CardContent>
       </CardActionArea>
 
-      <CardActions>
+      <CardActions sx={{ justifyContent: "space-between" }}>
         <Button
           size="small"
           color="primary"
@@ -69,6 +75,26 @@ export default function MultiActionAreaCard({
         >
           Open
         </Button>
+
+        <Stack direction="row" spacing={1}>
+          <Button
+            size="small"
+            color="secondary"
+            startIcon={<EditIcon />}
+            onClick={() => router.push(`/admin/${option}/${id}/edit-${option}`)}
+          >
+            Edit
+          </Button>
+
+          <Button
+            size="small"
+            color="error"
+            startIcon={<DeleteIcon />}
+            onClick={() =>deleteItem(`http://localhost:3000/api/v1/${option}/${id}`)}
+          >
+            Delete
+          </Button>
+        </Stack>
       </CardActions>
     </Card>
   );

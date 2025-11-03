@@ -26,7 +26,7 @@ export default function page() {
 
   return (
     <Stack direction="row" display="flex" flexWrap="wrap" gap="1rem">
-      <Button onClick={() => router.push("/addPosts")} fullWidth>
+      <Button onClick={() => router.push("/admin/posts/create-posts")} fullWidth>
         <AddCircleOutlineIcon fontSize="large" />
       </Button>
 
@@ -35,7 +35,7 @@ export default function page() {
           {" "}
           <MultiActionAreaCard
             title={item.title}
-            description={item.body}
+            description={item.body?item.body:item.description}
             id={item.id}
             option={"posts"}
             key={item.id}
