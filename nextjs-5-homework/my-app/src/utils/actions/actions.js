@@ -10,7 +10,7 @@ export const createItem = async (url, name, data) => {
       "Content-Type": "application/json",
     },
   });
-  revalidateTag(`${name}`);
+  revalidateTag(name);
   return { msg: "done" };
 };
 
@@ -22,12 +22,19 @@ export const updateItem = async (url, name, data) => {
       "Content-Type": "application/json",
     },
   });
-  revalidateTag(`${name}`);
+  revalidateTag(name);
   return { msg: "done" };
 };
 
-export const deleteItem = async (url, name) => {
-  await fetch(url, { method: "DELETE" });
-  revalidateTag(`${name}`);
-  return { msg: "done" };
-};
+export async function deleteItem(url, tagName) {
+  try {
+    const res = await fetch(url, { method: "DELETE" });
+    if (!res.ok) throw new Error("Failed to delete item");
+
+    revalidateTag(tagName);
+    return { msg: "done" };
+  } catch (err) {
+    console.error(err);
+    return { msg: "error", error: err.message };
+  }
+}

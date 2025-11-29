@@ -90,7 +90,13 @@ export default function MultiActionAreaCard({
             size="small"
             color="error"
             startIcon={<DeleteIcon />}
-            onClick={() =>deleteItem(`http://localhost:3000/api/v1/${option}/${id}`)}
+            onClick={async () => {
+              await deleteItem(
+                `http://localhost:3000/api/v1/${option}/${id}`,
+                option
+              );
+              router.refresh();
+            }}
           >
             Delete
           </Button>

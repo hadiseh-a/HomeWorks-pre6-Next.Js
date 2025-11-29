@@ -1,11 +1,10 @@
-export const getData = async (url) => {
-  const res = await fetch(url);
+export const getData = async (url, tagName = "posts") => {
+  const res = await fetch(url, {
+    next: { tags: [tagName] },
+    cache: "no-store",
+  });
 
-  if (!res.ok) {
-    throw new Error("something went wrong");
-  }
+  if (!res.ok) throw new Error("Failed to fetch data");
 
-  const data = await res.json();
-  
-  return data;
+  return res.json();
 };
